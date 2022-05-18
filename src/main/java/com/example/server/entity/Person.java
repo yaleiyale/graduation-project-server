@@ -13,7 +13,7 @@ public class Person {
     @Column(name = "person_name", nullable = false, length = 45)
     private String personName;
 
-    @Column(name = "image_url", nullable = false, length = 45)
+    @Column(name = "image_url", length = 45)
     private String imageUrl;
 
     @Column(name = "power")

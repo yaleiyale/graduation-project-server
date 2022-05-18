@@ -12,6 +12,7 @@ public interface RecordRepository extends JpaRepository<Record, Integer> {
         record.setPersonId(pid);
         record.setDeviceId(did);
         record.setResult(able);
+        record.setTime(time);
         return record;
     }
 }

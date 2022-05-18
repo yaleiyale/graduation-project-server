@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface PersonRepository extends JpaRepository<Person,Integer> {
   List<Person> findByPersonId(Integer pid);
+
 }
