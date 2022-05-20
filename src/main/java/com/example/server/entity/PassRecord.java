@@ -4,11 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "record")
-public class Record {
+public class PassRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "record_id", nullable = false)
-    private Integer id;
+    private Integer recordId;
 
     @Column(name = "device_id", nullable = false)
     private Integer deviceId;
@@ -22,12 +22,12 @@ public class Record {
     @Column(name = "time", nullable = false, length = 45)
     private String time;
 
-    public Integer getId() {
-        return id;
+    public Integer getRecordId() {
+        return recordId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setRecordId(Integer id) {
+        this.recordId = id;
     }
 
     public Integer getDeviceId() {

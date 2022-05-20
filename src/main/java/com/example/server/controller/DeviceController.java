@@ -23,7 +23,13 @@ public class DeviceController {
     }
 
     @RequestMapping("/getalldevices")
-    public List<Device> getDevices() {
-       return deviceRepository.findAll();
+    public Object getDevices() {
+        class DeviceList {
+            public List<Device> devices;
+        }
+        DeviceList deviceList = new DeviceList();
+        deviceList.devices = deviceRepository.findAll();
+        return deviceList;
     }
 }
+

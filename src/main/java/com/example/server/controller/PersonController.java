@@ -1,5 +1,6 @@
 package com.example.server.controller;
 
+import com.example.server.entity.PassRecord;
 import com.example.server.entity.Person;
 import com.example.server.repository.PersonRepository;
 import com.example.server.repository.RecordRepository;
@@ -12,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 @RestController
 public class PersonController {
@@ -20,12 +22,17 @@ public class PersonController {
     @Autowired
     RecordRepository recordRepository;
 
+    @RequestMapping("/getallrecord")
+    public List<PassRecord> getRecords() {
+        return recordRepository.findAll();
+    }
+
     @RequestMapping("/judgeandrecord")
     private Boolean judgeAndRecord(int pid, int did) {
         String time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(System.currentTimeMillis());
         int temp_power = personRepository.findByPersonId(pid).get(0).getPower();
         boolean able = (temp_power >> (did - 1) & 1) != 0;
-        recordRepository.save(recordRepository.generateRecord(pid, did,time, able));
+        recordRepository.save(recordRepository.generateRecord(pid, did, time, able));
         return able;
     }
 
@@ -65,7 +72,16 @@ public class PersonController {
 
     @RequestMapping("/getidbybitmap")
     public String FaceRecognition(@RequestParam MultipartFile file) {
-    return "1";
+        return "1";
     }
 
+    @RequestMapping("/getallpeople")
+    public Object getPeople() {
+        class PersonList {
+            public List<Person> people;
+        }
+        PersonList personList = new PersonList();
+        personList.people = personRepository.findAll();
+        return personList;
+    }
 }

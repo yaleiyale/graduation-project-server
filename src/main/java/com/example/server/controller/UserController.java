@@ -16,7 +16,7 @@ public class UserController {
     @RequestMapping("/getuserlist")
     public boolean login(String account, String password) {
         String res = userRepository.findByUserId(Integer.parseInt(account)).get(0).getUserPassword();
-        System.out.println(account+"登录");
+        System.out.println(account + "登录");
         return res.equals(password);
     }
 

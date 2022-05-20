@@ -7,7 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PersonRepository extends JpaRepository<Person,Integer> {
-  List<Person> findByPersonId(Integer pid);
+public interface PersonRepository extends JpaRepository<Person, Integer> {
+    List<Person> findByPersonId(Integer pid);
 
+    @Override
+    List<Person> findAll();
 }

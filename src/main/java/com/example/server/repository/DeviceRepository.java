@@ -10,12 +10,12 @@ import java.util.List;
 public interface DeviceRepository extends JpaRepository<Device, Integer> {
 
 
-    @Override
     List<Device> findAll();
 
+
     default Device addDevice(String customName) {
-       Device device = new Device();
-       device.setCustomName(customName);
-       return device;
+        Device device = new Device();
+        device.setCustomName(customName);
+        return device;
     }
 }
