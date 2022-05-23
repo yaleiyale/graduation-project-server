@@ -13,6 +13,17 @@ public class Device {
     @Column(name = "custom_name")
     private String customName;
 
+    @Column(name = "ip", nullable = false, length = 45)
+    private String ip;
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
     public Integer getDeviceId() {
         return deviceId;
     }

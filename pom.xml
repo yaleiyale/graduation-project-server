@@ -41,6 +41,13 @@
 			<artifactId>fastjson2</artifactId>
 			<version>2.0.3</version>
 		</dependency>
+		<dependency>
+			<groupId>org.opencv</groupId>
+			<artifactId>opencv</artifactId>
+			<version>4.5.5</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/opencv/opencv-455.jar</systemPath>
+		</dependency>
 	</dependencies>
 
 

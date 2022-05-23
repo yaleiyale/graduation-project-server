@@ -22,6 +22,17 @@ public class PassRecord {
     @Column(name = "time", nullable = false, length = 45)
     private String time;
 
+    @Column(name = "image_url", nullable = false, length = 45)
+    private String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public Integer getRecordId() {
         return recordId;
     }
