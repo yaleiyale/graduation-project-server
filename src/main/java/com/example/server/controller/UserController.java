@@ -30,11 +30,10 @@ public class UserController {
         } catch (Exception e) {
             status = String.valueOf(e);
         }
-        //返回结果
         ApiResult apiResult = new ApiResult();
         apiResult.setCode(code);
         apiResult.setStatus(status);
-        apiResult.setData(data.getUserPassword());//需要返回的信息
+        apiResult.setData(data.getUserPassword());
 
         return apiResult;
     }

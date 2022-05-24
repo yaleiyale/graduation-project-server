@@ -7,6 +7,7 @@ import com.example.server.entity.Person;
 import com.example.server.repository.PersonRepository;
 import com.example.server.repository.RecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.FileSystemUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -138,6 +139,7 @@ public class PersonController {
         Person person = JSON.parseObject(json_person, Person.class);
         System.out.println(person);
         personRepository.delete(person);
+        FileSystemUtils.deleteRecursively(new File("C:/bitmap/"+person.getPersonId()+".jpg"));
         recordRepository.deleteByPersonId(person.getPersonId());
         return true;
     }
