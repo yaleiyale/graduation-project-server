@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping("/getuserlist")
+    @RequestMapping("/login")
     public boolean login(String account, String password) {
         String res = userRepository.findByUserId(Integer.parseInt(account)).get(0).getUserPassword();
         System.out.println(account + "登录");
